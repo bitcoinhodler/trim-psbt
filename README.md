@@ -13,7 +13,7 @@ the PSBT (to send your coins to me, for example).
 
 With your base64-encoded PSBT in a file, run:
 
-  $ ./trim-psbt.py < my-psbt.txt > trimmed-psbt.txt
+  $ ./trim_psbt.py < my-psbt.txt > trimmed-psbt.txt
 
 # What does it remove?
 
