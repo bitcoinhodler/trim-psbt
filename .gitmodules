@@ -1,0 +1,4 @@
+[submodule "f469-disco"]
+	path = f469-disco
+	url = git@github.com:bitcoinhodler/f469-disco.git
+	branch = psbt-in-full-python
