@@ -2,7 +2,6 @@
 import fileinput
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), 'f469-disco', 'libs', 'common'))
 from bitcoin import psbt
 # base64 encoding
 from binascii import a2b_base64, b2a_base64
