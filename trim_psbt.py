@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import fileinput
-import os
-import sys
 from bitcoin import psbt
 # base64 encoding
 from binascii import a2b_base64, b2a_base64
