@@ -1,0 +1,14 @@
+# TidyPy is a Python lint tool. https://pypi.org/project/tidypy/
+# This file controls what checks to apply to our code.
+
+[tool.tidypy]
+# These files don't belong to us
+exclude = [ "bitcoin" ]
+
+[tool.tidypy.pydocstyle]
+disabled = [
+    # D212 and D213 have to do with multi-line docstrings: should they
+    # start on the same line or next? I chose next line to be
+    # consistent with what most of GlacierScript uses.
+    "D212",
+]

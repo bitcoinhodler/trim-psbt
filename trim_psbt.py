@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
+"""
+Tool for trimming out non-witness UTXOs from Bitcoin PSBTs.
+
+See https://github.com/bitcoin/bitcoin/pull/19215
+
+It just results in unnecessarily large PSBTs. As long as you don't
+sign the same inputs twice, there's no danger.
+
+"""
+from binascii import a2b_base64, b2a_base64
 import fileinput
 from bitcoin import psbt
 # base64 encoding
-from binascii import a2b_base64, b2a_base64
 
 
 def strip(orig_psbt):
@@ -10,12 +19,12 @@ def strip(orig_psbt):
     # first convert it to binary
     raw = a2b_base64(orig_psbt)
     # then parse
-    tx = psbt.PSBT.parse(raw)
+    txn = psbt.PSBT.parse(raw)
 
-    for inp in tx.inputs:
+    for inp in txn.inputs:
         if inp.witness_utxo and inp.non_witness_utxo:
             inp.non_witness_utxo = None
-    rawout = tx.serialize()
+    rawout = txn.serialize()
     # convert to base64
     b64_psbt = b2a_base64(rawout)
     # somehow b2a ends with \n...
@@ -27,7 +36,7 @@ def strip(orig_psbt):
 
 
 def main():
-    # Read base64 PSBT from stdin, or file specified on cmdline
+    """Read base64 PSBT from stdin, or file specified on cmdline."""
     with fileinput.input() as fin:
         orig_psbt = next(fin)
     print(strip(orig_psbt))
