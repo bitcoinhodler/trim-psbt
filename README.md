@@ -5,9 +5,12 @@ Transactions) down to a smaller size by removing unnecessary info.
 
 # Who is this for?
 
-Only me. Unless you can audit the code (including the changes I made
-in the submodule), you should not use this. It could maliciously alter
-the PSBT (to send your coins to me, for example).
+Only me. Unless you can audit the code (including the
+[changes](https://github.com/bitcoinhodler/f469-disco/commit/b8bba650ef3a866d3047af3932f110cd955bec5c)
+I made in the python libraries copied from
+[f469-disco](https://github.com/bitcoinhodler/f469-disco/tree/psbt-in-full-python)),
+you should not use this. It could maliciously alter the PSBT (to send
+your coins to me, for example).
 
 # How do I use it?
 
